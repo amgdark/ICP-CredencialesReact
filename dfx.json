@@ -1,0 +1,48 @@
+{
+  "canisters": {
+    "otro_backend": {
+      "main": "src/otro_backend/main.mo",
+      "type": "motoko"
+    },
+    "otro_frontend": {
+      "dependencies": [
+        "otro_backend"
+      ],
+      "source": [
+        "src/otro_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "otro_frontend"
+    },
+    "internet_identity": {
+      "type": "custom",
+      "candid": "https://github.com/dfinity/internet-identity/releases/download/release-2023-09-08/internet_identity.did",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/download/release-2023-09-08/internet_identity_dev.wasm.gz",
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      }
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    },
+    "ic": {
+      "providers": [
+        "https://mainnet.dfinity.network"
+      ],
+      "type": "persistent"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
